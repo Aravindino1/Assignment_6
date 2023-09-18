@@ -1,0 +1,130 @@
+#Assignment1
+##1. Create a JSON file (employee.json) containing employee information of minimum 5 employees. Each employee information consists of Name, DOB, Height, City, State. Write a python program that reads this information from the JSON file and saves the information into a list of objects of Employee class. Finally print the list of the Employee objects.
+import json
+
+dictionary = [{
+"Name":"Aravind",
+"DOB":"17-05-1998",
+"Height":"5.7",
+"City":"Bangalore",
+"State":"Karnataka"
+},
+{
+"Name":"Arjun",
+"DOB":"26-08-1999",
+"Height":"5.6",
+"City":"Bangalore",
+"State":"Karnataka"
+},
+{
+"Name":"Akash",
+"DOB":"26-03-2000",
+"Height":"6.1",
+"City":"Bangalore",
+"State":"Karnataka"
+},
+{
+"Name":"suresh",
+"DOB":"29-10-1996",
+"Height":"5.5",
+"City":"Coimbatore",
+"State":"Tamil Nadu"
+},
+{
+"Name":"Fazil",
+"DOB":"19-04-1995",
+"Height":"5.2",
+"City":"Chennai",
+"State":"Tamil Nadu"
+}]
+
+with open("employee.json", "w") as outfile:
+    json.dump(dictionary, outfile)
+
+f = open('employee.json',)
+data = json.load(f)
+l=[]
+for i in data:
+    l.append(i)
+print(l)
+
+##2Create a dictionary of any 7 Indian states and their capitals. Write this into a JSON file.
+import json
+
+dictionary = [{
+"State":"Karnataka",
+"Capital":"Bangalore"
+},
+{
+"State":"Tamil Nadu",
+"Capital":"Chennai"
+},
+{
+"State":"Telengana",
+"Capital":"Hyderabad"
+},
+{
+"State":"Punjab",
+"Capital":"Chandigarh"
+},
+{
+"State":"Maharashtra",
+"Capital":"Mumbai"
+},
+{
+"State":"Madhya Pradesh",
+"Capital":"Bhopal"
+},
+{
+"State":"Kerala",
+"Capital":"Trivandrum"
+}]
+with open("state.json", "w") as outfile:
+    json.dump(dictionary, outfile)
+
+
+#Assignment 2
+##1. Create a class named ‘Dog’. It should have a constructor which accepts its name, age and coat color. You must perform the following operations:
+class Dog:
+ 
+    species = 'mammal'
+
+    # Initializer / Instance Attributes
+    def __init__(self, name, age, coat_color):
+        self.name = name
+        self.age = age
+        self.coat_color = coat_color
+
+    # instance method
+    def description(self):
+        return "{} is {} years old".format(self.name, self.age)
+
+    # instance method
+    def get_info(self):
+        return "{} has coat color {}".format(self.name, self.coat_color)
+
+# Child class (inherits from Dog class)
+class RussellTerrier(Dog):
+    def run(self, speed):
+        return "{} runs {}".format(self.name, speed)
+    def sleep(self, sleep):
+        return "{} sleeps {} hrs per day".format(self.name, sleep)
+
+# Child class (inherits from Dog class)
+class Bulldog(Dog):
+    def run(self, speed):
+        return "{} runs {}".format(self.name, speed)
+    def sleep(self, sleep):
+        return "{} sleeps {} hrs per day".format(self.name, sleep)
+#RussellTerrier
+Leon = RussellTerrier("Leon", 6,"Blue")
+print(Leon.description())
+print(Leon.get_info())
+print(Leon.run("20 km/hr"))
+print(Leon.sleep("8"))
+#Bulldog    
+jimmy = Bulldog("Jimmy", 12,"red")
+print(jimmy.description())
+print(jimmy.get_info())
+print(jimmy.run("50 km/hr"))
+print(jimmy.sleep("6"))
